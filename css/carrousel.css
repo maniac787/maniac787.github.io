@@ -1,0 +1,57 @@
+/*carrousel*/
+.carousel {
+    margin: 0 auto;
+    max-width: 700px;
+    overflow: hidden;
+    display: flex;
+
+    > * {
+        flex: 0 0 100%;
+    }
+
+    &:hover .group {
+        animation-play-state: paused;
+    }
+}
+
+/* Agrupando las tarjetas para una mejor estructura. */
+.group {
+    display: flex;
+    gap: 20px;
+    /* Agrega padding a la derecha para crear un espacio entre la última y la primera tarjeta. */
+    padding-right: 20px;
+
+    will-change: transform; /* Deberíamos ser amables con el navegador: hazle saber qué vamos a animar. */
+    animation: scrolling 20s linear infinite;
+}
+
+@keyframes scrolling {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.card {
+    width: 100%;
+    color: white;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 10%) 5px 5px 20px 0;
+    padding: 15px 80px;
+    font-size: large;
+    justify-content: center;
+    vertical-align: text-bottom;
+    align-items: center;
+    min-height: inherit;
+
+    &:nth-child(odd) {
+        background: #2acc90;
+    }
+
+    &:nth-child(even) {
+        background: #33B5FF;
+    }
+}
